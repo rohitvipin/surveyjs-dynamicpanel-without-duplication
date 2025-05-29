@@ -1,0 +1,105 @@
+{
+    "title": "Favorites Survey",
+    "pages": [
+        {
+            "name": "favorites_PAGE",
+            "title": "Your Favorites",
+            "elements": [
+                {
+                    "type": "paneldynamic",
+                    "name": "favorites_information",
+                    "title": "List Your Favorites",
+                    "maxPanelCount": 6,
+                    "templateElements": [
+                        {
+                            "type": "dropdown",
+                            "name": "favorite_type",
+                            "title": "Category",
+                            "placeholder": "Select a category",
+                            "choices": [
+                                {
+                                    "value": "movie",
+                                    "text": "Movie"
+                                },
+                                {
+                                    "value": "fruit",
+                                    "text": "Fruit"
+                                },
+                                {
+                                    "value": "food",
+                                    "text": "Food"
+                                },
+                                {
+                                    "value": "place",
+                                    "text": "Place"
+                                }
+                            ],
+                            "choicesVisibleIf": "{panel.favorite_type} = {item} or !( {all_selected_favorite_types} contains {item} )"
+                        },
+                        {
+                            "type": "dropdown",
+                            "name": "movie_genre",
+                            "title": "Select the genre:",
+                            "visibleIf": "{panel.favorite_type} = 'movie'",
+                            "choices": [
+                                {
+                                    "value": "action",
+                                    "text": "Action"
+                                },
+                                {
+                                    "value": "comedy",
+                                    "text": "Comedy"
+                                },
+                                {
+                                    "value": "drama",
+                                    "text": "Drama"
+                                },
+                                {
+                                    "value": "sci-fi",
+                                    "text": "Sci-Fi"
+                                },
+                                {
+                                    "value": "other",
+                                    "text": "Other"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "boolean",
+                            "name": "fruit_is_sweet",
+                            "title": "Is it sweet?",
+                            "visibleIf": "{panel.favorite_type} = 'fruit'"
+                        },
+                        {
+                            "type": "dropdown",
+                            "name": "food_type",
+                            "title": "Is it sweet or savory?",
+                            "visibleIf": "{panel.favorite_type} = 'food'",
+                            "choices": [
+                                {
+                                    "value": "sweet",
+                                    "text": "Sweet"
+                                },
+                                {
+                                    "value": "savory",
+                                    "text": "Savory"
+                                },
+                                {
+                                    "value": "both",
+                                    "text": "Both"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "name": "place_visit_time",
+                            "title": "When did you last visit?",
+                            "inputType": "date",
+                            "visibleIf": "{panel.favorite_type} = 'place'"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
